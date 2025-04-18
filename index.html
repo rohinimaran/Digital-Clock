@@ -17,7 +17,7 @@
         background-size: cover;
         background-position: center;
         overflow: hidden;
-        transition: background-image 0.5s ease-in-out;
+        
       }
 
       h2 {
@@ -107,29 +107,29 @@
         backgrounds[Math.floor(Math.random() * backgrounds.length)]
       })`;
 
-      const hourEl = document.getElementById("hour");
-      const minuteEl = document.getElementById("minutes");
-      const secondEl = document.getElementById("seconds");
+      const hEl = document.getElementById("hour");
+      const mEl = document.getElementById("minutes");
+      const sEl = document.getElementById("seconds");
       const ampmEl = document.getElementById("ampm");
 
       function updateClock() {
-        let h = new Date().getHours();
-        let m = new Date().getMinutes();
-        let s = new Date().getSeconds();
+        let hour = new Date().getHours();
+        let min = new Date().getMinutes();
+        let sec = new Date().getSeconds();
         let ampm = "AM";
 
-        if (h > 12) {
-          h = h - 12;
+        if (hour > 12) {
+          hour = hour - 12;
           ampm = "PM";
         }
 
-        h = h < 10 ? "0" + h : h;
-        m = m < 10 ? "0" + m : m;
-        s = s < 10 ? "0" + s : s;
+        hour = hour < 10 ? "0" + hour : hour;
+        min = min < 10 ? "0" + min : min;
+        sec = sec < 10 ? "0" + sec : sec;
 
-        hourEl.innerText = h;
-        minuteEl.innerText = m;
-        secondEl.innerText = s;
+        hEl.innerText = hour;
+        mEl.innerText = min;
+        sEl.innerText = sec;
         ampmEl.innerText = ampm;
         setTimeout(() => {
           updateClock();
